@@ -20,12 +20,12 @@ try:
 
      
         with connection.cursor() as cursor:
-            select_all_rows = "SELECT * FROM `news`"
-            cursor.execute(select_all_rows)
-            # cursor.execute("SELECT * FROM `users`")
+            # select_all_rows = "SELECT * FROM `news`"
+            # cursor.execute(select_all_rows)
+            cursor.execute("SELECT * FROM `test1`")
             rows = cursor.fetchall()
             for row in rows:
-                print(row)
+                
             
 
     finally:

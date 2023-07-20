@@ -27,7 +27,7 @@
 			                           
 			<div class="news__content">
 				<h2 class="news__title">
-					<a class="news__title-link" href="{% url 'news_detailview' el.id %}">{{ row.title }}</a>                         
+					<a class="news__title-link" href="{% url 'news_detailview' el.id %}">{{ row.name }}</a>                         
 				</h2> 
 				                                                
 				<p class="news__description">{{ row.anons|truncatechars:200 }}</p>
