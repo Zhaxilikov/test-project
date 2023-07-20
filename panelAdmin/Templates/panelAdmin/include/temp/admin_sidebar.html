@@ -1,0 +1,54 @@
+
+<aside class="sidebar">
+    <div class="sidebar__header">
+        <img src="../img/admin.jpg" alt="обложка">
+    </div>
+    <div class="sidebar__content">
+        <div class="profile">
+            <img class="profile__avatar" src="../img/logoWA.png" alt="">
+            <div class="profile__name">Панель управления Администратора</div>
+            <div class="profile__prof">По списку ниже можно добавлть информации, новости по категориям, записи и тд.</div>
+
+
+            <div class="sidebar__row">
+                <ul class="row__inner">
+                    <li class="row__item">
+                        <a class="row__link" href="{% url 'post_index' %}">Записи</a>
+                    </li>
+                    <li class="row__item">
+                        <a class="row__link" href="{% url 'post_index' %}">">Категории</a>
+                    </li>
+                    <li class="row__item">
+                        <a class="row__link" href="<?php echo BASE_URL . "../../admin/users/index.php"?>" >Пользователи</a>
+                    </li>
+                    <li class="row__item">
+                        <a class="row__link" href="<?php echo BASE_URL . "../../admin/commentsAdm/index.php"?>" >Комментарии</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar__footer">
+         <a class="btn btn--red" href="{% url 'home' %}">Главная страница</a>
+        <button id="myBtn" class="btn btn--blue" type="button" data-modal="contact-modal">Написать разработчику</button>
+
+        <!--            <div class="social">-->
+        <!--                <div class="social__item">-->
+        <!--                    <a class="social__link" href="#" target="_blank">-->
+        <!--                        <img src="assets/img/instagram.svg" alt="instagram PaintXant">-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--                <div class="social__item">-->
+        <!--                    <a class="social__link" href="#" target="_blank">-->
+        <!--                        <img src="assets/img/vk.svg" alt="VK PaintXant">-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--                <div class="social__item">-->
+        <!--                    <a class="social__link" href="#" target="_blank">-->
+        <!--                        <img src="assets/img/pinterest.svg" alt="P PaintXant">-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+    </div>
+
+</aside>

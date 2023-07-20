@@ -1,0 +1,82 @@
+p {
+        margin-bottom: 20px;
+    }
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+        margin-bottom: 20px;
+        font-weight: 700;
+
+}
+
+h2 {
+        font-size: 20px;
+}
+h3 {
+        font-size: 15px;
+}
+
+h4 {
+        font-size: 13px;
+}
+
+.post__text {
+    font-size: 14px;
+    font-weight: 300;
+    color: $white;
+
+    border-bottom: 1px solid #8e736d;
+}
+
+
+ul, ol {
+        margin-bottom: 20px;
+}
+
+ul {
+        list-style-type: none;
+}
+
+ol {
+        list-style: decimal;
+        list-style-position: inside;
+}
+
+
+table {
+        margin-bottom: 20px;
+        width: 100%;
+}
+
+
+img {
+        
+        width: 100%;
+        height: auto;
+        
+}
+
+.fr-video {
+
+        width: 100%;
+        height: auto;
+}
+
+a {
+        color: #107eff;
+        text-decoration: none;
+}
+
+a:hover {
+        text-decoration: underline;
+}
+
+
+
+
+
+
+

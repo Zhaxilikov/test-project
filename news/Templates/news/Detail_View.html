@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    {{ article.title }} 
+{% endblock %}
+{% block content %}
+<a class="btn btn-primary" href="{% url 'news_home' %}" type="button">артка</a>
+	<h1>{{ article.title }}</h1>
+    <p>{{ article.data }}</p>
+    <h3>{{ article.anons }}</h3>
+    <p>{{ article.Full_text }}</p>
+
+
+    {% include 'news/related.html' %}
+
+
+    <h3 class="postsub__title">Обсуждение</h3>
+    <form class="form" action="/" method="post">
+        <div class="form__group">
+            <textarea class="form__control" name="comment-text" placeholder="Текст комментария" data-autoresize></textarea>
+        </div>
+        <button class="btn btn--blue btn--rounded" type="submit">Отправить</button>
+    </form>
+
+    
+        
+    
+    </div>
+
+{% endblock %}

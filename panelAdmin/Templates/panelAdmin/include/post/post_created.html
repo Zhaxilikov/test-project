@@ -1,0 +1,56 @@
+{% extends 'panelAdmin/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	admpanel_panel
+{% endblock %}
+{% block content %}	
+                <div class="post">
+                    <a class="btn--blue btn--rounded btn" href="{% url 'post_edit' %}">Редактировать</a>
+
+                    <div class="post__content">
+                        <h1>Добавление записи</h1>
+                        <div class="err">
+                            <?php include("../../app/errMsg/errinfo.php");?>
+                        </div>
+                        <table class="content__table">
+                           <div class="add-post">
+                               <form class="add-post__form" action="created.php" method="post" enctype="multipart/form-data">
+
+                                   <div class="form__group">
+                                       <input name="title" type="text" placeholder="Название стаьи" class="form__control form__control--md">
+                                       <span class="form__line-profile">   </span>
+                                   </div>
+                                   <div class="form__group">
+                                        <textarea id="" class="add-post__textarea" name="content" placeholder="Содержимое записи"></textarea>
+                                   </div>
+
+                                   <div class="form__button">
+                                       <select class="form__select form__select--size" name="topic" aria-label="default select example" id="">
+                                           <option class="form__option" selected>Выберите категорию:</option>
+                                           <?php foreach ($topics as $key => $topic):?>
+                                               <option class="form__option" value="<?=$topic['id']; ?>"><?= $topic['name']; ?></option>
+                                           <?php endforeach;?>
+                                       </select>
+
+                                       <div class="checkbox">
+                                           <label class="checkbox__check">Опубликовать
+                                               <input name="publish" type="checkbox" value="1" id="checked">
+                                           </label>
+                                       </div>
+
+                                       <div class="add-post__form-actions">
+                                           <label class="add-post__file" for="add-post-file">
+                                               <input name="img" type="file" id="add-post-file">
+                                           </label>
+                                       </div>
+                                       <button class="btn btn--blue btn--rounded btn--save" name="add_post" type="submit">Добавить запись</button>
+                                   </div>
+
+                               </form>
+                           </div>
+                    </div>
+
+                </div>
+{% endblock %}

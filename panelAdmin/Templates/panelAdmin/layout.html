@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main/css/admin.css' %}">
+</head>
+<title>{% block title %}
+    {% endblock %}</title>
+<body>
+
+<div class="page">
+    <div class="container__block">
+
+        <!-------------------------header------------------------>
+        {% include 'panelAdmin/include/temp/admin_header.html' %}
+        <!-------------------------header end------------------------>
+
+        <!-------------------------sidebar------------------------>
+        {% include 'panelAdmin/include/temp/admin_sidebar.html' %}
+        <!-------------------------sidebar end------------------------>
+
+        <!-------------------------main----------------------------->
+        <main class="main">
+            <div class="container">
+                {% block content %}
+	            {% endblock %}
+            </div>
+        </main>
+        <!-------------------------main end----------------------------->
+
+    </div><!-------------------------container__block end----------------------------->
+
+</div><!-------------------------page end----------------------------->
+
+<?php include '../../app/temp/script.php'?>
+
+</body>
+
+</html>

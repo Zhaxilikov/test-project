@@ -1,0 +1,38 @@
+
+{% load static %}
+<div class="related">
+    <h3 class="postsub__title">Интересно почитать</h3>
+    {% for el in news %}
+    <ul class="related__list">
+        <li class="related__list-item">
+            <h4 class="related__list-title">
+                <a class="related__link" href="{% url 'news_detailview' el.id %}">{{ el.title }}</a>
+                </h4>
+                <time class="related__list-date" datatime="2022-11-25 11:55">{{ el.data }}</time>
+            
+        </li>
+        <li class="related__list-item">
+            <h4 class="related__list-title">
+                <a class="related__link" href="#">Как я сходил на Front-end conf 2022</a>
+                </h4>
+                <time class="related__list-date" datatime="2022-11-25 11:55">25.11.2022</time>
+            
+        </li>
+        <li class="related__list-item">
+            <h4 class="related__list-title">
+                <a class="related__link" href="#">Как я сходил на Front-end conf 2022</a>
+                </h4>
+                <time class="related__list-date" datatime="2022-11-25 11:55">25.11.2022</time>
+            
+        </li>
+        <li class="related__list-item">
+            <h4 class="related__list-title">
+                <a class="related__link" href="#">Как я сходил на Front-end conf 2022</a>
+                </h4>
+                <time class="related__list-date" datatime="2022-11-25 11:55">25.11.2022</time>
+            
+        </li>
+    </ul>
+    {% endfor %}
+
+</div>

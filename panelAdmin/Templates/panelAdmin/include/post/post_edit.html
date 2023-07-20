@@ -1,0 +1,64 @@
+{% extends 'panelAdmin/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	admpanel_panel
+{% endblock %}
+{% block content %}	
+
+                <div class="post">
+                    <a class="btn--red btn--rounded btn" href="{% url 'post_created' %}">Создать</a>
+                    <div class="post__content">
+                        <h1>Редактирование записи</h1>
+                        <div class="err">
+
+                        </div>
+                        <table class="content__table">
+                            <div class="add-post">
+                                <form  class="add-post__form" action="edit.php" method="post" enctype="multipart/form-data">
+                                    <input name="id" value="<?=$id;?>" type="hidden" ">
+                                    <div class="form__group">
+
+                                        <input name="title" value="<?=$post['title'];?>" type="text" placeholder="Название статьи" class="form__control form__control--md">
+                                        <span class="form__line-profile">   </span>
+                                    </div>
+                                    <div class="form__group">
+                                        <textarea class="add-post__textarea" name="content" placeholder="Содержимое записи"><?=$content;?></textarea>
+                                    </div>
+
+                                    <div class="form__button">
+                                        <select class="form__select form__select--size" name="topic" aria-label="default select example" id="">
+
+                                            <?php foreach ($topics as $key => $topic):?>
+                                                <option class="form__option" value="<?=$topic['id']; ?>"><?=$topic['name']; ?></option>
+                                            <?php endforeach;?>
+                                        </select>
+
+                                        <div class="checkbox">
+                                            <?php if (empty($publist) && $publish == 0): ?>
+                                            <label class="checkbox__check" for="flexCheckChecked">Опубликовать
+                                                <input name="publish" type="checkbox" id="checked" >
+                                            </label>
+                                            <?php else: ?>
+                                                <label class="checkbox__check" for="flexCheckChecked">Опубликовать
+                                                    <input name="publish" type="checkbox" id="checked">
+                                                </label>
+                                            <?php endif;?>
+                                        </div>
+
+                                        <div class="add-post__form-actions">
+                                            <label class="add-post__file" for="add-post-file">
+                                                <input name="img" type="file" id="add-post-file">
+                                            </label>
+                                        </div>
+                                        <button class="btn btn--blue btn--rounded btn--save" name="post-edit" type="submit">Сохранить</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                    </div>
+                </div>
+
+
+{% endblock %}

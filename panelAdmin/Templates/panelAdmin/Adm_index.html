@@ -1,0 +1,54 @@
+{% extends 'panelAdmin/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	admpanel_panel
+{% endblock %}
+{% block content %}	
+
+                <div class="post">
+                    <!-- <a class="btn--red btn--rounded btn" href="created.php">Создать</a>
+                    <a class="btn--blue btn--rounded btn" href="index.php">Редактировать</a> -->
+
+                    <div class="post__content">
+                        <h1>Управление записами</h1>
+                        <table class="content__table">
+                            <tr class="table__inner">
+                                <th class="table__title">ID</th>
+                                <th class="table__title">Наименование</th>
+                                <th class="table__title">Автор</th>
+                                <th class="table__title">Категория</th>
+                                <th colspan="2" class="table__title">управление</th>
+                                <th class="table__title">Дата создание</th>
+                                <th colspan="2" class="table__title">Статус</th>
+
+                            </tr>
+                            <!-- <?php foreach ($postsAdm as $key => $post):?> -->
+                            <tr class="table__inner">
+                                <td class="table__item">jklj</td>
+                                <td class="table__item">klkjkl</td>
+                                <td class="table__item">45454</td>
+
+                                <td class="table__item">4554</td> 
+
+                                <td class="table__item"><a href="">edit</a></td>
+                                <td class="table__item"><a href="">delete</a></td>
+                                <td class="table__item"><a href="#">mm</a></td>
+                                <!-- <?php if ($post['status']): ?> -->
+                                    <td class="table__item"><a href="">Опубликаовано</a></td>
+                                <!-- <?php else:?> -->
+                                    <td class="table__item"><a href="">Не Опубликовано</a></td>
+                                <!-- <?php endif;?> -->
+                            </tr>
+                            <!-- <?php endforeach;?> -->
+
+                        </table>
+                    </div>
+
+                </div>
+    
+
+
+        <!-------------------------main end----------------------------->
+{% endblock %}

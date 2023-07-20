@@ -1,0 +1,50 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+	новости
+{% endblock %}
+{% block content %}
+<h2>Жаңалықтар тізімі</h2>
+{% include 'news/pagination.html' %}
+	{% if news %}		
+	{% for el in news %}
+		<article class="news">
+				<div class="news__preview">
+					<a href="{% url 'news_detailview' el.id %}">                         
+						<img class="news__img" src="{% static 'main/img/2.jpg' %}" alt="">
+					</a>                     
+				</div>                             
+				<div class="news__content">
+					<h2 class="news__title">
+						<a class="news__title-link" href="{% url 'news_detailview' el.id %}">{{ el.title}}</a>                         
+					</h2>                                                  
+					<p class="news__description">{{ el.anons|truncatechars:200  }}</p>
+
+					<div class="news__footer">
+						<ul class="news__data">
+							<li class="news__data-item">
+								<time datetime="2022-11-10 10:02">{{ el.data }}</time>
+							</li>                          
+							<li class="news__data-item">
+								<a class="news__data-link" href="#">рубрика</a>
+							</li> 
+							<li class="news__data-item">
+								<a class="news__data-link" href="#">Автор</a>
+							</li>
+							<li class="news__data-item">
+								<a class="news__data-link" href="#">просмотр и нравиться</a>
+							</li>                                                   
+						</ul>                          
+						<a class="news_read btn btn-warning" href="{% url 'news_detailview' el.id %}">читать</a>
+					</div>
+				</div>                           
+				
+		</article>
+	{% endfor %}
+	{% else %}
+		<p>У Вас нет записи!</p>
+	{% endif %}
+	
+	{% include 'news/pagination.html' %}
+{% endblock %}

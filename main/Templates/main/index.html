@@ -1,0 +1,129 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	№34 мектеп
+{% endblock %}
+{% block content %}	
+		<!----history--------------------->
+
+		{% include 'main/include/anonse.html' %}
+
+		<!----history end--------------------->
+<a class="btn btn-primary" href="{% url 'news_home' %}" type="button">Жаналыктар</a>
+
+
+{% if rows %}
+	{% for row in rows %}
+
+		<article class="news">
+			
+			<div class="news__preview">
+				<a href="{% url 'news_detailview' el.id %}">                         
+					<img src="{% static 'main/img/2.jpg' %}" alt="">
+				</a>                     
+			</div>  
+			                           
+			<div class="news__content">
+				<h2 class="news__title">
+					<a class="news__title-link" href="{% url 'news_detailview' el.id %}">{{ row.title }}</a>                         
+				</h2> 
+				                                                
+				<p class="news__description">{{ row.anons|truncatechars:200 }}</p>
+
+				<div class="news__footer">
+					<ul class="news__data">
+						<li class="news__data-item">
+							<time datetime="2022-11-10 10:02">{{ created_data }}</time>
+						</li>                          
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">рубрика</a>
+						</li> 
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">Автор</a>
+						</li> 
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">просмотр и нравиться</a>
+						</li>                                                    
+					</ul>                          
+					<a class="news_read btn btn-warning" href="{% url 'news_detailview' el.id %}">читать</a>
+				</div>
+			</div>                           
+			
+	</article>
+		{% endfor %}
+
+		{% else %} 
+			<p> У вас новостей из БД MySql!  </p>
+	{% endif %}
+
+
+{% if news %}	
+{% for el in news %}	
+
+		<article class="news">
+			
+			<div class="news__preview">
+				<a href="{% url 'news_detailview' el.id %}">                         
+					<img src="{% static 'main/img/2.jpg' %}" alt="">
+				</a>                     
+			</div>  
+			                           
+			<div class="news__content">
+				<h2 class="news__title">
+					<a class="news__title-link" href="{% url 'news_detailview' el.id %}">{{ el.title }}</a>                         
+				</h2> 
+				                                                
+				<p class="news__description">{{ el.anons|truncatechars:200 }}</p>
+
+				<div class="news__footer">
+					<ul class="news__data">
+						<li class="news__data-item">
+							<time datetime="2022-11-10 10:02">{{ el.data }}</time>
+						</li>                          
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">рубрика</a>
+						</li> 
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">Автор</a>
+						</li> 
+						<li class="news__data-item">
+							<a class="news__data-link" href="#">просмотр и нравиться</a>
+						</li>                                                    
+					</ul>                          
+					<a class="news_read btn btn-warning" href="{% url 'news_detailview' el.id %}">читать</a>
+				</div>
+			</div>                           
+			
+	</article>
+	
+	{% endfor %}
+	
+	<div class="container">
+		{% block pagination %}
+			{% include 'main/include/pagination.html' %}
+		{% endblock %}
+	</div>
+
+	{% for p in page_obj.paginator.page_rande %}
+	<li class="pagination__item">
+		<a class="pagination__link" href="?page={{ p }}">{{ p }}</a>
+	</li>
+	{% endfor %}
+
+	{% include 'news/pagination.html' %}
+{% else %}
+	У вас нет записи!
+{% endif %}
+
+		<!----history--------------------->
+
+		{% include 'main/include/history.html' %}
+
+		<!----history end--------------------->
+
+		{% include 'main/include/best_st.html' %}
+
+		
+{% endblock %}
